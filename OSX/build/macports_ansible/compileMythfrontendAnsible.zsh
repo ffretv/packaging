@@ -273,14 +273,14 @@ cd $REPO_DIR
 if [ -d "$REPO_DIR/mythtv" ]; then
   cd $REPO_DIR/mythtv
   if $UPDATE_GIT && ! $SKIP_BUILD ; then
-    echo "    Updateing mythtv/mythplugins git repo"
+    echo "    Updating mythtv/mythplugins git repo"
     git pull
   else
       echo "    Skipping mythtv/mythplugins git repo update"
   fi
 # else pull down a fresh copy of the repo from github
 else
-  echo "    Cloning mythtv git repo"
+  echo "    Cloning FFRETV/mythtv git repo"
   git clone -b $MYTHTV_VERS git://github.com/ffretv/mythtv.git
 fi
 # apply specified patches
@@ -293,7 +293,7 @@ if [ $APPLY_PATCHES ] && [ ! -z $MYTHTV_PATCH_DIR ]; then
     fi
   done
 fi
-echo "------------ Cloning / Updating Packaging Git Repository ------------"
+echo "------------ Cloning / Updating FFRETV/Packaging Git Repository ------------"
 # get packaging
 cd $REPO_DIR/mythtv
 # check if the repo exists and update (if the flag is set)
@@ -307,7 +307,7 @@ if [ -d $PKGING_DIR ]; then
   fi
 # else pull down a fresh copy of the repo from github
 else
-  echo "    Cloning mythtv-packaging git repo"
+  echo "    Cloning FFRETV/mythtv-packaging git repo"
   git clone -b $MYTHTV_VERS https://github.com/ffretv/packaging.git
 fi
 
