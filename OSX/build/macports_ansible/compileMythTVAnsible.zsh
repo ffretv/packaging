@@ -598,7 +598,7 @@ echo "------------ Generating .dmg file  ------------"
 # Package up the build
 cd $APP_DIR
 if $BUILD_PLUGINS; then
-    VOL_NAME=MythTV$VERS-$ARCH-$OS_VERS-v$VERS-$GIT_VERS-with-plugins
+    VOL_NAME=MythTV-$VERS-$ARCH-$OS_VERS-v$VERS-$GIT_VERS-with-plugins
 else
     VOL_NAME=MythTV-$VERS-$ARCH-$OS_VERS-v$VERS-$GIT_VERS
 fi
