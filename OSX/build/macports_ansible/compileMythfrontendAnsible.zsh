@@ -109,7 +109,7 @@ done
 # otherwise extract it from the MYTHTV_VERS
 case $MYTHTV_VERS in
     master*)
-       VERS=$(git ls-remote --tags  git://github.com/MythTV/mythtv.git|tail -n 1)
+       VERS=$(git ls-remote --tags  git://github.com/ffretv/upstream-mythtv.git|tail -n 1)
        VERS=${VERS##*/v}
        VERS=$(echo $VERS|tr -dc '0-9')
     ;;
