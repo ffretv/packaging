@@ -109,7 +109,7 @@ done
 # otherwise extract it from the MYTHTV_VERS
 case $MYTHTV_VERS in
     master*)
-       VERS=$(git ls-remote --tags  git://github.com/ffretv/upstream-mythtv.git|tail -n 1)
+       VERS=$(git ls-remote --tags  git://github.com/ffretv/mythtv.git|tail -n 1)
        VERS=${VERS##*/v}
        VERS=$(echo $VERS|tr -dc '0-9')
     ;;
@@ -236,8 +236,8 @@ else
     fi
   # pull down a fresh repo if none exist
   else
-    echo "    Cloning mythtv-anisble git repo"
-    git clone https://github.com/MythTV/ansible.git
+    echo "    Cloning FFRETV/mythtv-anisble git repo"
+    git clone https://github.com/ffretv/ansible.git
   fi
   cd $REPO_DIR/ansible
   export ANSIBLE_DISPLAY_SKIPPED_HOSTS=false
@@ -266,7 +266,7 @@ else
     echo "    Skipping py2app install - it is already installed"
 fi
 
-echo "------------ Cloning / Updating FFRETV/upstream-mythtv Git Repository ------------"
+echo "------------ Cloning / Updating FFRETV/mythtv Git Repository ------------"
 # setup mythtv source from git
 cd $REPO_DIR
 # if the repo exists, update it (assuming the flag is set)
@@ -281,7 +281,7 @@ if [ -d "$REPO_DIR/mythtv" ]; then
 # else pull down a fresh copy of the repo from github
 else
   echo "    Cloning mythtv git repo"
-  git clone -b $MYTHTV_VERS git://github.com/ffretv/upstream-mythtv.git
+  git clone -b $MYTHTV_VERS git://github.com/ffretv/mythtv.git
 fi
 # apply specified patches
 if [ $APPLY_PATCHES ] && [ ! -z $MYTHTV_PATCH_DIR ]; then
@@ -308,7 +308,7 @@ if [ -d $PKGING_DIR ]; then
 # else pull down a fresh copy of the repo from github
 else
   echo "    Cloning mythtv-packaging git repo"
-  git clone -b $MYTHTV_VERS https://github.com/ffretv/upstream-packaging.git
+  git clone -b $MYTHTV_VERS https://github.com/ffretv/packaging.git
 fi
 
 # apply any user specified patches if the flag is set
