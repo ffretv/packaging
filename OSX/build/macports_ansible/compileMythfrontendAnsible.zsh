@@ -266,7 +266,7 @@ else
     echo "    Skipping py2app install - it is already installed"
 fi
 
-echo "------------ Cloning / Updating Mythtv Git Repository ------------"
+echo "------------ Cloning / Updating FFRETV/upstream-mythtv Git Repository ------------"
 # setup mythtv source from git
 cd $REPO_DIR
 # if the repo exists, update it (assuming the flag is set)
@@ -281,7 +281,7 @@ if [ -d "$REPO_DIR/mythtv" ]; then
 # else pull down a fresh copy of the repo from github
 else
   echo "    Cloning mythtv git repo"
-  git clone -b $MYTHTV_VERS git://github.com/MythTV/mythtv.git
+  git clone -b $MYTHTV_VERS git://github.com/ffretv/upstream-mythtv.git
 fi
 # apply specified patches
 if [ $APPLY_PATCHES ] && [ ! -z $MYTHTV_PATCH_DIR ]; then
@@ -308,7 +308,7 @@ if [ -d $PKGING_DIR ]; then
 # else pull down a fresh copy of the repo from github
 else
   echo "    Cloning mythtv-packaging git repo"
-  git clone -b $MYTHTV_VERS https://github.com/MythTV/packaging.git
+  git clone -b $MYTHTV_VERS https://github.com/ffretv/upstream-packaging.git
 fi
 
 # apply any user specified patches if the flag is set
